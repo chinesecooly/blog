@@ -1,0 +1,77 @@
+services:
+  blog-dev:
+    build:
+      context: .
+      target: dev
+    container_name: blog
+    ports:
+      - "8080:8080"
+    environment:
+      - MYSQL_URL=jdbc:mysql://mysql/blog?serverTimezone=Asia/Shanghai
+    volumes:
+      - ./:/blog
+    networks:
+      mysql-net:
+    depends_on:
+      - mysql-dev
+    profiles:
+      - dev
+
+  blog-prod:
+    build:
+      context: .
+      target: prod
+    container_name: blog
+    ports:
+      - "8080:8080"
+    environment:
+      - MYSQL_URL=jdbc:mysql://mysql/blog?serverTimezone=Asia/Shanghai
+    volumes:
+      - ./:/blog
+    networks:
+      mysql-net:
+    depends_on:
+      - mysql-prod
+    profiles:
+      - prod
+
+  mysql-dev:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=blog
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_config:/etc/mysql/conf.d
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      mysql-net:
+    profiles:
+      - dev
+
+  mysql-prod:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=blog
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_config:/etc/mysql/conf.d
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      mysql-net:
+    profiles:
+      - prod
+
+volumes:
+  mysql_data:
+  mysql_config:
+
+networks:
+  mysql-net:
+    driver: bridge
+

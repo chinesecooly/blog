@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 日志存放路径 -->
+    <property name="log.path" value="logs"/>
+    <!-- 日志输出格式 -->
+    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>
+    <!-- 日志控制台输出格式 -->
+    <property name="log.console.pattern" value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{36}%n) - %msg%n"/>
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.console.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!--INFO 文件输出-->
+    <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 文件路径/文件名 -->
+        <file>${log.path}/myapp-info.log</file>
+        <!-- 基于时间和文件大小的滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 基于时间创建日志文件 -->
+            <fileNamePattern>${log.path}/info/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 最大文件大小，超过该大小则进行日志滚动 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最大的历史日志文件数量 -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 -->
+            <level>INFO</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 系统日志输出 debug-->
+    <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 文件路径/文件名 -->
+        <file>${log.path}/myapp-debug.log</file>
+        <!-- 基于时间和文件大小的滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 基于时间创建日志文件 -->
+            <fileNamePattern>${log.path}/debug/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 最大文件大小，超过该大小则进行日志滚动 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最大的历史日志文件数量 -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 -->
+            <level>DEBUG</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 系统日志输出 error-->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 文件路径/文件名 -->
+        <file>${log.path}/myapp-error.log</file>
+        <!-- 基于时间和文件大小的滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 基于时间创建日志文件 -->
+            <fileNamePattern>${log.path}/error/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 最大文件大小，超过该大小则进行日志滚动 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最大的历史日志文件数量 -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 过滤的级别 -->
+            <level>ERROR</level>
+            <!-- 匹配时的操作：接收（记录） -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 不匹配时的操作：拒绝（不记录） -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 用户访问日志输出  -->
+    <appender name="USER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 文件路径/文件名 -->
+        <file>${log.path}/myapp-user.log</file>
+        <!-- 基于时间和文件大小的滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 基于时间创建日志文件 -->
+            <fileNamePattern>${log.path}/user/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 最大文件大小，超过该大小则进行日志滚动 -->
+            <maxFileSize>100MB</maxFileSize>
+            <!-- 最大的历史日志文件数量 -->
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+    <!--系统用户操作日志-->
+    <logger name="sys-user" level="info">
+        <appender-ref ref="USER"/>
+    </logger>
+
+</configuration>
