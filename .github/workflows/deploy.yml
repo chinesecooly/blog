@@ -12,7 +12,7 @@ jobs:
           env
       - name: Debug Secrets
         run: |
-          echo "REMOTE_USER: ${{ REMOTE_USER }}"
+          echo "REMOTE_USER: ${{ actions.REMOTE_USER }}"
       - name: Deploy to aliyun server
         uses: appleboy/ssh-action@v1.0.3
         with:
