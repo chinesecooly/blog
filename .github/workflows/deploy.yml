@@ -11,9 +11,9 @@ jobs:
         run: |
           echo "REMOTE_USER: ${{ secrets.REMOTE_USER }}"
       - name: Deploy to aliyun server
-        uses: appleboy/ssh-action@1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.REMOTE_HOST }}
+          host: www.ningyu.ink
           key: ${{ secrets.SERVER_SSH_KEY }}
           username: ${{ secrets.REMOTE_USER }}
           script: |
