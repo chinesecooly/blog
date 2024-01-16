@@ -7,13 +7,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Deploy to aliyun server
-        uses: alex-ac/github-action-ssh-docker-compose@master
+        uses: appleboy/ssh-action@master
         env:
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
-          ssh_host: ${{ secrets.REMOTE_HOST }}
-          ssh_user: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          script: |
+            cd ~
+            git clone https://github.com/chinesecooly/CICD-Blog.git
+            cd CICD-Blog
+            docker compose -d --profile prod up
 
 
