@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to aliyun server
-        uses: appleboy/ssh-action@1.0.0
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.REMOTE_HOST }}
           key: ${{ secrets.SERVER_SSH_KEY }}
