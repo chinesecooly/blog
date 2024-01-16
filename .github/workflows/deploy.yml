@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Deploy to aliyun server
         uses: appleboy/ssh-action@master
-        env:
+        with:
           key: ${{ secrets.SERVER_SSH_KEY }}
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
