@@ -31,7 +31,6 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 /logs
-/shell
 /.github
 LICENSE
 README.md
