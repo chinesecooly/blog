@@ -10,14 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Deploy to aliyun server
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: alex-ac/github-action-ssh-docker-compose@master
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-avzr --delete"
-          SOURCE: "./"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "~/"
-          RUN: docker compose -d --profile prod up
+          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_host: ${{ secrets.REMOTE_HOST }}
+          ssh_user: ${{ secrets.REMOTE_USER }}
 
 
