@@ -13,7 +13,7 @@ jobs:
       - name: Deploy to aliyun server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: www.ningyu.ink
+          host: ${{ secrets.REMOTE_HOST}}
           key: ${{ secrets.SERVER_SSH_KEY }}
           username: ${{ secrets.REMOTE_USER }}
           script: |
