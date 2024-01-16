@@ -7,6 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Environment
+        run: |
+          env
       - name: Debug Secrets
         run: |
           echo "REMOTE_USER: ${{ secrets.REMOTE_USER }}"
