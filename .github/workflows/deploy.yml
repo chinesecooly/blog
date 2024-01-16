@@ -10,13 +10,13 @@ jobs:
       - name: Deploy to aliyun server
         uses: appleboy/ssh-action@master
         with:
-          key: ${{ secrets.SERVER_SSH_KEY }}
           host: ${{ secrets.REMOTE_HOST }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
           username: ${{ secrets.REMOTE_USER }}
           script: |
             cd ~
             git clone https://github.com/chinesecooly/CICD-Blog.git
-            cd CICD-Blog
+            cd ~/CICD-Blog
             docker compose -d --profile prod up
 
 
