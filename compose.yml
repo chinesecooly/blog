@@ -22,6 +22,8 @@ services:
       context: .
       target: prod
     container_name: blog
+    ports:
+      - "8080:8080"
     environment:
       - MYSQL_URL=jdbc:mysql://mysql/blog?serverTimezone=Asia/Shanghai
     volumes:
