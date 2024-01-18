@@ -20,6 +20,6 @@ jobs:
             
             #docker compose up
             cd ~/blog
-            docker compose up -d --profile prod
+            docker compose --profile prod up -d
 
 
