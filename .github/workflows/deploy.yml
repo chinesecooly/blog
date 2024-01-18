@@ -27,12 +27,6 @@ jobs:
             sudo apt-get update
             sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
             
-            # clone code
-            cd ~
-            git clone https://github.com/chinesecooly/CICD-Blog.git
-            
-            #docker compose up
-            cd ~/CICD-Blog
-            docker compose -d --profile prod up
+
 
 
