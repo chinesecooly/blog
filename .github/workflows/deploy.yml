@@ -16,10 +16,11 @@ jobs:
           script: |
             # 切换到主目录
             cd ~ || exit
-            # 下载Docker官方提供的安装脚本
-            curl -fsSL https://get.docker.com -o get-docker.sh
-            # 运行脚本安装Docker
-            sh get-docker.sh
+            # 判断是否安装了Docker，如果没有则使用官方提供的脚本安装Docker
+            if ! command -v docker &> /dev/null ; then
+              curl -fsSL https://get.docker.com -o get-docker.sh
+              sh get-docker.sh
+            fi
             # 判断是否拉拉取了代码，没有拉取则拉取
             if [ ! -d "./blog" ]; then
               git clone https://github.com/chinesecooly/blog.git
