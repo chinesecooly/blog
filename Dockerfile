@@ -9,7 +9,7 @@ RUN ./mvnw dependency:resolve
 COPY src ./src
 
 FROM base as dev
-EXPOSE 8080
+EXPOSE 8000
 RUN chmod +x mvnw
 CMD ["./mvnw", "spring-boot:run"]
 
@@ -17,6 +17,6 @@ FROM base as build
 RUN ./mvnw package
 
 FROM eclipse-temurin:17-jre-jammy as prod
-EXPOSE 8080
+EXPOSE 8000
 COPY --from=build /blog/target/blog-*.jar /blog.jar
 CMD ["java", "-jar", "/blog.jar"]
