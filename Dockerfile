@@ -10,7 +10,8 @@ COPY src ./src
 
 FROM base as dev
 EXPOSE 8080
-CMD ["./mvnw", "spring-boot:run"]
+EXPOSE 8000
+CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.jvmArguments='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000'"]
 
 FROM base as build
 RUN ./mvnw package
@@ -18,4 +19,4 @@ RUN ./mvnw package
 FROM eclipse-temurin:17-jre-jammy as prod
 EXPOSE 8080
 COPY --from=build /blog/target/blog-*.jar /blog.jar
-CMD ["java",  "-jar", "/blog.jar"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom" , "-jar", "/blog.jar"]
