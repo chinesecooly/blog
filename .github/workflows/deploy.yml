@@ -20,6 +20,6 @@ jobs:
             
             #docker compose up
             cd ~/CICD-Blog
-            docker compose -d --profile prod up
+            docker compose up -d --profile prod
 
 
