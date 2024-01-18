@@ -1,6 +1,0 @@
-21:12:19.065 [main] INFO  i.n.b.BlogApplication - [logStarting,50] - Starting BlogApplication using Java 17.0.8 with PID 18752 (C:\Users\Administrator\Desktop\blog\target\classes started by Administrator in C:\Users\Administrator\Desktop\blog)
-21:12:19.069 [main] INFO  i.n.b.BlogApplication - [logStartupProfileInfo,662] - No active profile set, falling back to 1 default profile: "default"
-21:12:19.784 [main] INFO  i.n.b.BlogApplication - [logStarted,56] - Started BlogApplication in 1.483 seconds (process running for 2.021)
-21:14:06.081 [main] INFO  i.n.b.BlogApplicationTests - [logStarting,50] - Starting BlogApplicationTests using Java 17.0.8 with PID 11216 (started by Administrator in C:\Users\Administrator\Desktop\blog)
-21:14:06.085 [main] INFO  i.n.b.BlogApplicationTests - [logStartupProfileInfo,662] - No active profile set, falling back to 1 default profile: "default"
-21:14:06.757 [main] INFO  i.n.b.BlogApplicationTests - [logStarted,56] - Started BlogApplicationTests in 1.31 seconds (process running for 2.452)

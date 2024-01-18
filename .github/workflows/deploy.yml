@@ -16,10 +16,10 @@ jobs:
           script: |
             # clone code
             cd ~
-            git clone https://github.com/chinesecooly/CICD-Blog.git
+            git clone https://github.com/chinesecooly/blog.git
             
             #docker compose up
-            cd ~/CICD-Blog
+            cd ~/blog
             docker compose up -d --profile prod
 
 
