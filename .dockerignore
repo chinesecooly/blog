@@ -32,5 +32,6 @@
 **/values.dev.yaml
 /logs
 /.github
+/script
 LICENSE
 README.md
