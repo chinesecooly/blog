@@ -14,8 +14,17 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           username: ${{ secrets.REMOTE_USER }}
           script: |
-            chmod +x ./script/start.sh
-            ./script/start.sh
+            cd ~ || exit
+            
+            if [ ! -d "./blog" ]; then
+              git clone https://github.com/chinesecooly/blog.git
+            fi
+
+            cd blog || exit
+            
+            git pull
+            
+            docker compose --profile prod up -d
 
 
 
