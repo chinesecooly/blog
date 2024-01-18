@@ -14,16 +14,21 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           username: ${{ secrets.REMOTE_USER }}
           script: |
+            # 切换到主目录
             cd ~ || exit
-            
+            # 下载Docker官方提供的安装脚本
+            curl -fsSL https://get.docker.com -o get-docker.sh
+            # 运行脚本安装Docker
+            sh get-docker.sh
+            # 判断是否拉拉取了代码，没有拉取则拉取
             if [ ! -d "./blog" ]; then
               git clone https://github.com/chinesecooly/blog.git
             fi
-
+            # 进入工作目录
             cd blog || exit
-            
+            # 更新代码
             git pull
-            
+            # 运行prod环境下的构建，并且每次都重新构建镜像
             docker compose --profile prod up -d --build
 
 
