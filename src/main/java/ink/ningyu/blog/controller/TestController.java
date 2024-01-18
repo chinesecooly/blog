@@ -21,7 +21,7 @@ public class TestController {
     @GetMapping("/log")
     public Result log() {
         Test test = new Test();
-        test.setMsg("a get request");
+        test.setMsg("a get request after one push");
         test.setData(LocalDateTime.now());
         testMapper.insert(test);
         return Result.success(test);
