@@ -76,7 +76,7 @@ services:
       - NGINX_HOST=ningyu.ink
       - NGINX_PORT=80
     volumes:
-      - ./nginx/templates:/etc/nginx/templates
+      - ./nginx/templates/vue-client/dist:/etc/nginx/templates
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl
     networks:
@@ -111,4 +111,3 @@ networks:
     driver: bridge
   nginx-net:
     driver: bridge
-
