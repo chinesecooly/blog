@@ -30,4 +30,3 @@ build/
 logs/
 ### VS Code ###
 .vscode/
-/nginx/templates/vue-client/node_modules/
