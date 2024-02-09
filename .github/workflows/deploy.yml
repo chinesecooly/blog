@@ -29,6 +29,8 @@ jobs:
             cd blog || exit
             # 更新代码
             git pull
+            # 构建前端代码
+            cd nginx/templates/b-client && npm install && npm run build
             # 运行prod环境下的构建，并且每次都重新构建镜像
             docker compose --profile prod up -d --build
             # 重启nginx容器，更新配置文件
