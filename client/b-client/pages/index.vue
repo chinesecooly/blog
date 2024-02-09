@@ -14,7 +14,10 @@ div {
     text-align: center;
 }
 
-h1 {
-    text-align: center;
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 </style>
