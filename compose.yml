@@ -61,7 +61,6 @@ services:
     depends_on:
       - mysql
       - nginx
-      - redis-stack
     profiles:
       - prod
 
@@ -106,6 +105,8 @@ services:
       - redis-config:/redis-stack.conf
     networks:
       redis-net:
+    profiles:
+      - dev
 
 volumes:
   mysql_data:
