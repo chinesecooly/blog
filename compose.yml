@@ -1,37 +1,9 @@
 services:
-  blog-client-dev:
-    build:
-      context: .
-      target: dev
-      dockerfile: Dockerfile-client
-    container_name: client
-    ports:
-      - "3000:3000"
-    networks:
-      nginx-net:
-    depends_on:
-      - nginx
-    profiles:
-      - dev
-
-  blog-client-prod:
-    build:
-      context: .
-      target: prod
-      dockerfile: Dockerfile-client
-    container_name: client
-    networks:
-      nginx-net:
-    depends_on:
-      - nginx
-    profiles:
-      - prod
-
   blog-server-dev:
     build:
       context: .
       target: dev
-      dockerfile: Dockerfile-server
+      dockerfile: Dockerfile
     container_name: server
     ports:
       - "8000:8000"
@@ -51,7 +23,7 @@ services:
     build:
       context: .
       target: prod
-      dockerfile: Dockerfile-server
+      dockerfile: Dockerfile
     container_name: server
     environment:
       - MYSQL_URL=jdbc:mysql://mysql/blog?serverTimezone=Asia/Shanghai
