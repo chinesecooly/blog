@@ -31,3 +31,5 @@ logs/
 ### VS Code ###
 .vscode/
 **/node_modules
+/nginx/templates/b-client/dist/
+/nginx/templates/b-client/.nuxt/
