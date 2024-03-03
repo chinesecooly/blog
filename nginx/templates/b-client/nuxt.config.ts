@@ -2,12 +2,9 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   content: {
     documentDriven: true,
-    markdown: {
-      anchorLinks: false,
-    },
     highlight: {
       theme: 'github-light',
-      preload: ['python', 'kotlin', 'java', 'javascript', 'json', 'bash']
+      preload: ['c', 'java', 'javascript', 'json', 'bash', 'html']
     }
   },
   devtools: { enabled: true },
@@ -18,7 +15,6 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
-        // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
