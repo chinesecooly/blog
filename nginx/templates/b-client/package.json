@@ -13,6 +13,7 @@
     "@nuxthq/studio": "^1.0.10",
     "@nuxtjs/tailwindcss": "^6.11.0",
     "@tailwindcss/typography": "^0.5.10",
+    "mermaid": "^10.9.0",
     "nuxt": "^3.10.3",
     "nuxt-icon": "^0.6.8"
   },
