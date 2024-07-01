@@ -40,6 +40,13 @@
         <v-main>
             <slot />
         </v-main>
+        <v-footer class="text-center" app>
+            <v-row justify="center" no-gutters>
+                <v-col class="text-center mt-4" cols="12">
+                    <strong>鲁ICP备2021007744号-2</strong>
+                </v-col>
+            </v-row>
+        </v-footer>
     </v-layout>
 </template>
 
