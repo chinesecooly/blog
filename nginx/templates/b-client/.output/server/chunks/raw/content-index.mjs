@@ -1,7 +1,0 @@
-import { b as base64ToUint8Array } from '../virtual/_raw-helpers.mjs';
-
-// ROLLUP_NO_REPLACE 
- const contentIndex = base64ToUint8Array("eyIvYXJ0aWNsZXMvYXNtL2FzbSI6WyJjb250ZW50OmFydGljbGVzOkFTTToxLuS7gOS5iOaYr0FTTS5tZCJdLCIvYXJ0aWNsZXMvYXNtL2FwaSI6WyJjb250ZW50OmFydGljbGVzOkFTTToyLuaguOW/g0FQSS5tZCJdLCJ1bmRlZmluZWQiOlsiY29udGVudDphcnRpY2xlczpBU006aW1hZ2UtMS5wbmciLCJjb250ZW50OmFydGljbGVzOkFTTTppbWFnZS0yLnBuZyIsImNvbnRlbnQ6YXJ0aWNsZXM6QVNNOmltYWdlLTMucG5nIiwiY29udGVudDphcnRpY2xlczpBU006aW1hZ2UtNC5wbmciLCJjb250ZW50OmFydGljbGVzOkFTTTppbWFnZS5wbmciXX0=");
-
-export { contentIndex as default };
-//# sourceMappingURL=content-index.mjs.map
